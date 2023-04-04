@@ -1,0 +1,43 @@
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+preview = true
+exclude = '''
+/(
+    \.git
+ |  \.pytest_cache
+ |  \.venv
+ |  \.vscode
+ |  __pycache__
+ |  build
+ |  coverage
+ |  dist
+ |  htmlcov
+ |  migrations
+ |  node_modules
+)/
+'''
+
+
+[tool.isort]
+sections = [
+    "FUTURE",
+    "STDLIB",
+    "DJANGO",
+    "RESTFRAMEWORK",
+    "THIRDPARTY",
+    "FIRSTPARTY",
+    "LOCALFOLDER",
+]
+profile = "black"
+src_paths = ["myapp", "test"]
+known_first_party = ["myapp"]
+known_django = "django"
+skip_glob = ["*/migrations/*"]
+known_restframework = "rest_framework"
+multi_line_output = 3
+line_length = 88
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+extend_skip_glob = []

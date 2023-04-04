@@ -1,0 +1,18 @@
+.idea/*
+
+# Environment variables
+.env
+
+# Compiled python files
+*.pyc
+
+# Util files
+.coverage
+.DS_Store
+*__pycache__*
+
+# Dependencies
+venv
+
+# App statics
+media/*
