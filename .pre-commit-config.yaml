@@ -1,0 +1,11 @@
+---
+repos:
+  - repo: local
+    hooks:
+      - id: lint
+        name: Run lint code
+        description: This hook run local executable linter at `bin/lint.sh`
+        entry: bin/lint.sh --fix
+        language: python
+        types: [text]
+        pass_filenames: false
