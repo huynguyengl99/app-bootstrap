@@ -1,0 +1,61 @@
+---
+version: 2.1
+jobs:
+  test:
+    docker:
+      - image: cimg/python:3.11.2
+        environment:
+          POSTGRES_USER: PG_USER
+          POSTGRES_DB: PG_DB
+          POSTGRES_PASSWORD: password
+          DJANGO_SECRET_KEY: this_is_just_a_testing_secret_key
+      - image: cimg/postgres:15.0
+        environment:
+          POSTGRES_USER: PG_USER
+          POSTGRES_DB: PG_DB
+          POSTGRES_PASSWORD: password
+    steps:
+      - checkout
+      - restore_cache:
+          key: myapp-{{ .Branch }}-{{ checksum "poetry.lock" }}
+          paths:
+            - .venv
+      - run:
+          name: Create virtual env
+          command: |
+            python -m venv .venv
+            echo "source .venv/bin/activate" >> $BASH_ENV
+      - run:
+          name: Install init packages
+          command: |
+            pip install -r requirements-init.txt
+      - run:
+          name: Install packages
+          command: |
+            poetry install
+      - save_cache:
+          key: myapp-{{ .Branch }}-{{ checksum "poetry.lock" }}
+          paths:
+            - .venv
+      - run:
+          name: Lint
+          command: bin/lint.sh
+      - run:
+          name: Dependencies checking
+          command: bin/dep-validate.sh
+      - run:
+          name: Tests
+          command: pytest --cov-report term --cov=myapp myapp
+      - run:
+          name: Coveralls
+          command: coveralls
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test:
+          filters:
+            branches:
+              ignore:
+                - /^ignores\/.*$/

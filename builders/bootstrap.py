@@ -28,6 +28,7 @@ def cli(app_name):
     process_modules("myapp")
 
     replace_files = (
+        ".circleci/config.yml",
         "bin/manage.sh",
         "bin/lint.sh",
         "pyproject.toml",
