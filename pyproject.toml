@@ -6,9 +6,9 @@ exclude = '''
 /(
     \.git
  |  \.pytest_cache
- |  \.venv
  |  \.vscode
  |  __pycache__
+ |  venv
  |  build
  |  coverage
  |  dist
