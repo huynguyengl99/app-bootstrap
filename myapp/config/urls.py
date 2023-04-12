@@ -32,8 +32,10 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     re_path(r"^api/", include((api_router.urls, "api"), namespace="api")),
     path("api/status/", StatusView.as_view(), name="status"),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
 
 
 if settings.DEBUG:
     urlpatterns += [path("__debug__/", include("debug_toolbar.urls"))]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
