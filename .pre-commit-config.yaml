@@ -9,3 +9,10 @@ repos:
         language: python
         types: [text]
         pass_filenames: false
+      - id: check-dependencies
+        name: Check poetry dependencies
+        description: This hook run local executable dependencies checker at `bin/dep-validate.sh`
+        entry: bin/dep-validate.sh
+        language: python
+        types: [ text ]
+        pass_filenames: false

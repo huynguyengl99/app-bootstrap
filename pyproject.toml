@@ -41,3 +41,43 @@ include_trailing_comma = true
 force_grid_wrap = 0
 use_parentheses = true
 extend_skip_glob = []
+
+[tool.poetry]
+name = "myapp"
+version = "0.1.0"
+description = "This is MYAPP"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2"
+cytoolz = "^0.12.1"
+django-cors-headers = "^3.14.0"
+django-debug-toolbar = "^4.0.0"
+django-environ = "^0.10.0"
+django-extensions = "^3.2.1"
+djangorestframework = "^3.14.0"
+djangorestframework-simplejwt = "^5.2.2"
+gunicorn = "^20.1.0"
+psycopg = "^3.1.8"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+flake8 = "^6.0.0"
+ipdb = "^0.13.13"
+isort = "^5.12.0"
+pre-commit = "^3.2.2"
+faker = "^18.4.0"
+coveralls = "^3.3.1"
+factory-boy = "^3.2.1"
+freezegun = "^1.2.2"
+mock = "^5.0.2"
+pytest-cov = "^4.0.0"
+pytest-django = "^4.5.2"
+pytest-mock = "^3.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

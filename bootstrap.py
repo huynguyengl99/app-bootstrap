@@ -2,6 +2,7 @@ import fileinput
 import os
 import re
 import shutil
+import subprocess
 
 import click
 
@@ -34,6 +35,20 @@ def cli(app_name):
         for line in file:
             print(line.replace('myapp', app_name).replace('MYAPP', app_name.upper()), end='')
 
+    remove_line_include_content_files = (
+        'requirements-init.txt',
+        '.gitignore',
+    )
+    remove_line_contents = (
+        'click',
+        'Temporary ignore',
+        'poetry.lock',
+    )
+    with fileinput.FileInput(files=remove_line_include_content_files, inplace=True) as file:
+        for line in file:
+            if not any(remove_content in line for remove_content in remove_line_contents):
+                print(line, end='')
+
     shutil.move('myapp', app_name)
 
     shutil.copyfile('.env.TEMPLATE', '.env')
@@ -44,6 +59,8 @@ def cli(app_name):
 
     shutil.move('README.TEMPLATE.md', 'README.md')
     shutil.rmtree('.git')
+
+    subprocess.run(["git", "init"])
 
 
 if __name__ == '__main__':
