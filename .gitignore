@@ -12,7 +12,10 @@
 *__pycache__*
 
 # Dependencies
-venv
+.venv
+
+# Local lock file
+poetry.lock
 
 # App statics
 media/*
