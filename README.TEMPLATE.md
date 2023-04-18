@@ -16,11 +16,11 @@ This is MYAPP
 ### Environment & dependencies setup (Pyenv installed)
 - Create virtual env for easier maintain:
 ```bash
-python -m venv venv
+python -m venv .venv
 ```
-- Sourcing the venv:
+- Sourcing the .venv:
 ```bash
-source venv/bin/activate
+source .venv/bin/activate
 ```
 - Install package manager:
 ```bash

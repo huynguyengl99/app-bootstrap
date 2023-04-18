@@ -8,7 +8,7 @@ exclude = '''
  |  \.pytest_cache
  |  \.vscode
  |  __pycache__
- |  venv
+ |  .venv
  |  build
  |  coverage
  |  dist

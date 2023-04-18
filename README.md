@@ -9,11 +9,11 @@
 - Check if targeted python describe in [.python-version](.python-version) has been installed by using `python -V` or `which python`. If not, run `pyenv install`.
 - Create virtual env:
 ```bash
-    python -m venv venv
+    python -m venv .venv
 ```
-- Sourcing the venv:
+- Sourcing the .venv:
 ```bash
-    source venv/bin/activate
+    source .venv/bin/activate
 ```
 - Install initial dependencies.
 ```bash
