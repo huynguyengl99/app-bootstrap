@@ -5,9 +5,7 @@ if [ -d ".venv" ]; then
 fi
 
 if [ "$1" == "--fix" ]; then
-  isort . && black ./myapp/ && flake8 ./myapp
+  ruff check . --fix
 else
-  isort . --check-only &&
-  black ./myapp/ --check &&
-  flake8 ./myapp
+  ruff check .
 fi

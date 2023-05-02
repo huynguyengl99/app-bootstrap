@@ -71,10 +71,8 @@ pre-commit install
 
 ### Code conventions
 - For code convention we are using:
-  - [Isort](https://pycqa.github.io/isort/): for automatically sorting dependency imports.
-  - [Blake](https://black.readthedocs.io/en/stable): for code formatting.
-  - [Flake8](https://flake8.pycqa.org/en/latest/): for style guide enforcement.
-- The above tools have been wrapped with the executable script [bin/lint.sh](bin/lint.sh):
+  - [Ruff](https://pypi.org/project/ruff/): for speedy combination code formatting with flake8, blake or isort, e.t.c.
+- The above tool have been wrapped with the executable script [bin/lint.sh](bin/lint.sh):
   - To lint only, run: `bin/lint.sh`
   - To automatically format, run: `bin/lint.sh --fix`
 

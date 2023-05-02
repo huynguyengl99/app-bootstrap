@@ -1,0 +1,14 @@
+src = ["myapp"]
+ignore = ["F405", "E501"]
+select = ["E", "F", "B", "I", "Q", "DJ", "ERA", "UP", "N", "C90", "PL", "W", "N"]
+extend-exclude = ["*/migrations/*"]
+target-version = "py311"
+
+[isort]
+section-order = ["future", "standard-library", "django", "third-party", "first-party", "local-folder"]
+
+[isort.sections]
+django = ["django", "rest_framework"]
+
+[per-file-ignores]
+"*/tests/*" = ["PLR2004"]

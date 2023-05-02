@@ -4,7 +4,7 @@ repos:
     hooks:
       - id: lint
         name: Run lint code
-        description: This hook run local executable linter at `bin/lint.sh`
+        description: This hook run ruff code formatting using ruff
         entry: bin/lint.sh --fix
         language: python
         types: [text]
