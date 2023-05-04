@@ -31,6 +31,7 @@ def cli(app_name):
         "myapp/config/asgi.py",
         "myapp/config/urls.py",
         "myapp/config/wsgi.py",
+        ".coveragerc",
         "README.TEMPLATE.md",
     )
 
