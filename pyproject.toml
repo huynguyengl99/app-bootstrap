@@ -30,6 +30,7 @@ readme = "README.md"
 version = "0.1.0"
 
 [tool.poetry.dependencies]
+celery = "^5.2.7"
 cytoolz = "^0.12.1"
 django = "^4.2"
 django-cors-headers = "^3.14.0"

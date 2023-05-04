@@ -33,6 +33,7 @@ def cli(app_name):
         "pyproject.toml",
         "myapp/config/settings/base.py",
         "myapp/config/asgi.py",
+        "myapp/config/celery.py",
         "myapp/config/urls.py",
         "myapp/config/wsgi.py",
         ".coveragerc",
