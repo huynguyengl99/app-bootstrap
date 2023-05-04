@@ -30,6 +30,7 @@ def cli(app_name):
     replace_files = (
         "bin/manage.sh",
         "bin/lint.sh",
+        "docs/channels-websocket.md",
         "pyproject.toml",
         "myapp/config/settings/base.py",
         "myapp/config/asgi.py",

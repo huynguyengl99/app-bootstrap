@@ -1,0 +1,1 @@
+PRIORITY_APPS += ("daphne",)

@@ -30,6 +30,8 @@ readme = "README.md"
 version = "0.1.0"
 
 [tool.poetry.dependencies]
+channels = "^4.0.0"
+channels-redis = "^4.1.0"
 cytoolz = "^0.12.1"
 django = "^4.2"
 django-cors-headers = "^3.14.0"
@@ -43,10 +45,12 @@ psycopg = "^3.1.8"
 python = "^3.11"
 redis = "^4.5.5"
 urllib3 = "^1.26.15"
+uvicorn = "^0.22.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.3.0"
 coveralls = "^3.3.1"
+daphne = "^4.0.0"
 factory-boy = "^3.2.1"
 faker = "^18.4.0"
 freezegun = "^1.2.2"

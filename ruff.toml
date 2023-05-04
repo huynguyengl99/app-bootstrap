@@ -8,8 +8,9 @@ target-version = "py311"
 section-order = ["future", "standard-library", "django", "third-party", "first-party", "local-folder"]
 
 [isort.sections]
-django = ["django", "rest_framework"]
+django = ["channels", "django", "rest_framework"]
 
 [per-file-ignores]
 "*/tests/*" = ["PLR2004"]
+"*/asgi.py" = ["E402"]
 "*/_*.py" = ["F821"]
