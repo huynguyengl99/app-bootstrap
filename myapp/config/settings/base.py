@@ -38,6 +38,9 @@ ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
+PRIORITY_APPS = (
+)
+
 DJANGO_APPS = (
     "django.contrib.admin",
     "django.contrib.auth",
@@ -54,9 +57,14 @@ THIRD_PARTY_APPS = (
     "corsheaders",
 )
 
-LOCAL_APPS = ("status",)
+LOCAL_APPS = (
+    "status",
+)
 
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+EXTRA_APP = (
+)
+
+INSTALLED_APPS = PRIORITY_APPS + DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS + EXTRA_APP
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
