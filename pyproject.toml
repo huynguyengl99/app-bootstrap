@@ -1,3 +1,23 @@
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+preview = true
+exclude = '''
+/(
+    \.git
+ |  \.pytest_cache
+ |  \.vscode
+ |  __pycache__
+ |  .venv
+ |  build
+ |  coverage
+ |  dist
+ |  htmlcov
+ |  migrations
+ |  node_modules
+)/
+'''
+
 [tool.poetry]
 name = "myapp"
 version = "0.1.0"
@@ -31,6 +51,7 @@ pytest-cov = "^4.0.0"
 pytest-django = "^4.5.2"
 pytest-mock = "^3.10.0"
 ruff = "^0.0.264"
+black = "^23.3.0"
 
 [build-system]
 requires = ["poetry-core"]

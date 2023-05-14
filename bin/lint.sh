@@ -5,7 +5,7 @@ if [ -d ".venv" ]; then
 fi
 
 if [ "$1" == "--fix" ]; then
-  ruff check . --fix
+  ruff check . --fix && black ./myapp
 else
-  ruff check .
+  ruff check . && black ./myapp --check
 fi

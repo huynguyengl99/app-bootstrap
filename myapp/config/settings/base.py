@@ -38,8 +38,7 @@ ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
-PRIORITY_APPS = (
-)
+PRIORITY_APPS = ()
 
 DJANGO_APPS = (
     "django.contrib.admin",
@@ -57,12 +56,9 @@ THIRD_PARTY_APPS = (
     "corsheaders",
 )
 
-LOCAL_APPS = (
-    "status",
-)
+LOCAL_APPS = ("status",)
 
-EXTRA_APP = (
-)
+EXTRA_APP = ()
 
 INSTALLED_APPS = PRIORITY_APPS + DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS + EXTRA_APP
 
