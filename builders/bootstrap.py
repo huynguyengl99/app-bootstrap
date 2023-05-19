@@ -6,6 +6,8 @@ import subprocess
 
 import click
 
+from builders.process_modules import process_modules
+
 
 def validate_app_name(ctx, param, value):
     app_name_pattern = re.compile("^[a-z0-9_]+$")
@@ -23,6 +25,8 @@ def validate_app_name(ctx, param, value):
 )
 def cli(app_name):
     """Simple program that greets NAME for a total of COUNT times."""
+    process_modules("myapp")
+
     replace_files = (
         "bin/manage.sh",
         "bin/lint.sh",
@@ -57,14 +61,14 @@ def cli(app_name):
 
     shutil.copyfile(".env.TEMPLATE", ".env")
 
-    bootstrap_file = "bootstrap.py"
-    if os.path.isfile(bootstrap_file):
-        os.remove(bootstrap_file)
+    builder_dirs = "builders"
+    if os.path.isdir(builder_dirs):
+        shutil.rmtree(builder_dirs)
 
     shutil.move("README.TEMPLATE.md", "README.md")
     shutil.rmtree(".git")
 
-    subprocess.run(["git", "init"])
+    subprocess.run(["git", "init", "-b", "main"])
 
 
 if __name__ == "__main__":

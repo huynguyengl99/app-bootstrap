@@ -12,3 +12,4 @@ django = ["django", "rest_framework"]
 
 [per-file-ignores]
 "*/tests/*" = ["PLR2004"]
+"*/_*.py" = ["F821"]

@@ -56,7 +56,7 @@ THIRD_PARTY_APPS = (
     "corsheaders",
 )
 
-LOCAL_APPS = ("status",)
+LOCAL_APPS = ()
 
 EXTRA_APP = ()
 
