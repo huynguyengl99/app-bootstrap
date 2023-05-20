@@ -94,6 +94,9 @@ def append_lines_to_base(base_file, lines):
 
 
 def combine_modules(base_file, extend_files):
+    if not os.path.exists(base_file):
+        return
+
     base_content = read_file(base_file)
     base_tree = ast.parse(base_content)
 
@@ -101,6 +104,9 @@ def combine_modules(base_file, extend_files):
     all_modified_module = {}
 
     for ext_file in extend_files:
+        if not os.path.exists(ext_file):
+            continue
+
         extend_content = read_file(ext_file)
 
         modified_variables_base, modified_variables_extend = evaluate_content(base_tree, extend_content)
