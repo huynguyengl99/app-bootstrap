@@ -17,19 +17,18 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import include, path, re_path
+from django.urls import include, path
 from django.views.generic import RedirectView
-from rest_framework import routers
 
 from status.views import StatusView
 
-api_router = routers.SimpleRouter()
+api_urlpatterns = []
 
 
 urlpatterns = [
     path("", RedirectView.as_view(url="admin/")),
     path("admin/", admin.site.urls),
-    re_path(r"^api/", include((api_router.urls, "api"), namespace="api")),
+    path("api/", include((api_urlpatterns, "api"), namespace="api")),
     path("api/status/", StatusView.as_view(), name="status"),
 ]
 
