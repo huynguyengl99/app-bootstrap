@@ -1,7 +1,8 @@
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core"]
+
 [tool.black]
-line-length = 88
-target-version = ["py311"]
-preview = true
 exclude = '''
 /(
     \.git
@@ -17,18 +18,20 @@ exclude = '''
  |  node_modules
 )/
 '''
+line-length = 88
+preview = true
+target-version = ["py311"]
 
 [tool.poetry]
-name = "myapp"
-version = "0.1.0"
-description = "This is MYAPP"
 authors = ["Your Name <you@example.com>"]
+description = "This is MYAPP"
+name = "myapp"
 readme = "README.md"
+version = "0.1.0"
 
 [tool.poetry.dependencies]
-python = "^3.11"
-django = "^4.2"
 cytoolz = "^0.12.1"
+django = "^4.2"
 django-cors-headers = "^3.14.0"
 django-debug-toolbar = "^4.0.0"
 django-environ = "^0.10.0"
@@ -37,22 +40,19 @@ djangorestframework = "^3.14.0"
 djangorestframework-simplejwt = "^5.2.2"
 gunicorn = "^20.1.0"
 psycopg = "^3.1.8"
-
+python = "^3.11"
 
 [tool.poetry.group.dev.dependencies]
-ipdb = "^0.13.13"
-pre-commit = "^3.2.2"
-faker = "^18.4.0"
+black = "^23.3.0"
 coveralls = "^3.3.1"
 factory-boy = "^3.2.1"
+faker = "^18.4.0"
 freezegun = "^1.2.2"
+ipdb = "^0.13.13"
 mock = "^5.0.2"
+pre-commit = "^3.2.2"
 pytest-cov = "^4.0.0"
 pytest-django = "^4.5.2"
 pytest-mock = "^3.10.0"
 ruff = "^0.0.264"
-black = "^23.3.0"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+toml-sort = "^0.23.1"
