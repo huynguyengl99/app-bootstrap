@@ -31,6 +31,7 @@ version = "0.1.0"
 
 [tool.poetry.dependencies]
 cytoolz = "^0.12.1"
+dj-rest-auth = {extras = ["with-social"], version = "^4.0.0"}
 django = "^4.2"
 django-cors-headers = "^3.14.0"
 django-debug-toolbar = "^4.0.0"
