@@ -4,6 +4,9 @@ import os
 import re
 from collections import defaultdict
 
+MODULE_PY_REGEX = r"_(?P<module>[^\W_]+)_(?P<base>\w+).py"
+MODULE_TOML_REGEX = r"_(?P<module>[^\W_]+)_(?P<base>\w+).toml"
+
 
 def read_file(filename):
     with open(filename) as file:
@@ -122,14 +125,12 @@ def combine_modules(base_file, extend_files):
         append_lines_to_base(base_file, remain_lines)
 
 
-def list_modules(base_dir):
-    module_file_regex = r"_(?P<module>[^\W_]+)_(?P<base>\w+).py"
-
+def list_py_modules(base_dir):
     modules = defaultdict(list)
     for (root, _dirs, files) in os.walk(base_dir, topdown=True):
         files.sort()
         for file in files:
-            match = re.match(module_file_regex, file)
+            match = re.match(MODULE_PY_REGEX, file)
             if match:
                 parent_file = f"{match.group('base')}.py"
                 parent_file_path = os.path.join(root, parent_file)
@@ -145,8 +146,19 @@ def clean_up_submodules(children):
             os.remove(child)
 
 
+def process_toml():
+    with os.scandir(".") as it:
+        modules = defaultdict(list)
+        for entry in it:
+            match = re.match(MODULE_TOML_REGEX, entry.name)
+            if match:
+                parent_file = f"{match.group('base')}.toml"
+                parent_file_path = os.path.join(".", parent_file)
+                modules[parent_file_path].append(entry.path)
+
+
 def process_modules(root):
-    modules = list_modules(root)
+    modules = list_py_modules(root)
     for parent, children in modules.items():
         combine_modules(parent, children)
 
